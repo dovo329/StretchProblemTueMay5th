@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let homeDescription : String = "The house I grew up in is in Riverton, is large with a big yard, and plenty of bedrooms and space.  It is a very good house."
         var vowelArray : NSArray = ["a", "e", "i", "o", "u", "y", "A", "E", "I", "O", "U", "Y"]
         
-        var aCount = 0
+        /*var aCount = 0
         
         var eCount = 0
         
@@ -34,16 +34,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var uCount = 0
         
-        var yCount = 0
+        var yCount = 0*/
+
+        var totCount : Int = 0
         
 //        for (var i=0; var i<vowelArray(count); i++) {
         for (var i=0; i<vowelArray.count; i++) {
             //println("\(vowelArray.objectAtIndex(i))")
-            println("vowelArray(\(i)) == \(vowelArray.objectAtIndex(i))")
+            //println("vowelArray(\(i)) == \(vowelArray.objectAtIndex(i))")
             //println(NSString.stringWithFormat("vowelArray[%d]==%@", i, vowelArray.objectAtIndex(i)))
         }
         
+        for index in indices(homeDescription)
+        {
+            for (var vowelIndex=0; vowelIndex<vowelArray.count; vowelIndex++)
+            {
+                /*for character in "Dog!🐶" {
+                    println(character)
+                }*/
+                //println("char: \(homeDescription[index]): vowelArray[\(vowelIndex)]==\(vowelArray[vowelIndex])")
+                var tempString : String = vowelArray[vowelIndex] as! String
+                for character in tempString
+                {
+                    if (homeDescription[index] == character)
+                    {
+                        totCount++
+                        //println("homeDescription[\(index)]=\(homeDescription[index])==\(character); totCount==\(totCount)");
+                        //var subStr : String = String.format("found a vowel %@",vowelArray[vowelIndex])
+                        //vowelArray.addObject(subStr)
+                    }
+                }
+            }
+        }
         
+        /*
         for index in indices(homeDescription) {
         //for (var index=0; index<count(homeDescription); index++) {
             println("char: \(homeDescription[index]) ")
@@ -52,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 aCount++
                 var subStr : NSString = NSString(format:"%@","test")
                 //vowelArray.addObject(subStr)
-            }
+        }
             if (homeDescription[index] == "e" || homeDescription[index] == "E") {
                 //println("found an e")
                 eCount++
@@ -83,10 +107,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("yCount == \(yCount)");
         var totalCount = aCount + eCount + iCount + oCount + uCount + yCount
         println("vowelCount == \(totalCount)")
-/*        for var index = 0; index < homeDescription.endIndex; ++index {
-            let i = advance(homeDescription.startIndex, index)
-            println("char: \(homeDescription[i])")
-        }*/
+        //for var index = 0; index < homeDescription.endIndex; ++index {
+        //    let i = advance(homeDescription.startIndex, index)
+        //    println("char: \(homeDescription[i])")
+        //}
+        */
+        
+        println("Total number of vowels in string '\(homeDescription)' is \(totCount)");
         
         return true
     }
